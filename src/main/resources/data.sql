@@ -1,0 +1,1 @@
+INSERT INTO product (name, price) VALUES ('test-item-1', 10);
