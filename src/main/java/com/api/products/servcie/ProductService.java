@@ -13,8 +13,8 @@ public class ProductService {
     @Autowired
     private ProductRepo repo;
 
-    public void save(Product product){
-        repo.save(product);
+    public Product save(Product product){
+        return save(product);
     }
 
     public List<Product> getAllProducts(){
@@ -25,7 +25,7 @@ public class ProductService {
         return repo.findById(id).orElse(null);
     }
 
-    public void updateProduct(int id, Product product){
+    public Product updateProduct(int id, Product product){
 //        Product currentProduct = repo.findById(id).orElse(null);
 //        currentProduct.setName(product.getName());
 //        currentProduct.setPrice(product.getPrice());
@@ -33,7 +33,11 @@ public class ProductService {
 
         product.setId(id);
 
-        repo.save(product);
+       return repo.save(product);
+    }
+
+    public void deleteProductById(int id){
+        repo.deleteById(id);
     }
 
 }
